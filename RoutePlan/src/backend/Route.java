@@ -1,8 +1,14 @@
 package backend;
 
-
-
 public class Route {
+
+    /*
+     * Declaro los atributos que usaremos, genero los array para poder manejar mejor a la hora de seleccionar con radio buttons o seleccion por marcador, entonces
+     * pues al ser enteros se puede indexar rapidamente las ciudades etc, mismo con los vehiculos
+     * 
+     * Genero que la ruta tenga dos constructores, aqui aplico polimorfismo por sobrecarga donde dado el caso que el usuario quiera hacer un recorrido de 
+     * 3 ciudades, pues lo genere
+     */
 
     private String[] vehicles = {"Plane", "Car", "Motorbike", "Passenger bus", "Heavy vehicles", "Bike"};
     private String[] cities = {"Bogotá", "Ibagué", "Armenia", "Pereira", "Manizales", "Medellín", "Tunja"};

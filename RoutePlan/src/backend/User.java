@@ -7,16 +7,31 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class User {
+
+    /*
+     * Genero pues la estructura basica para poder escribir dentro de archivos txt para poder generar un tipo de base de datos
+     */
+    
+    private static final Exception NullPointerException = null;
     private DataOutputStream fake_db = null;
 
     public User(){
     }
 
-    public void register(String name, String surname, String password, String email){
+    /*
+     * El register consiste en el constructor, donde este debera de escribir dentro del archivo los datos, se genera el hecho de que dado el caso ingresen campos vacios
+     * Se genera tambien el error el cual es una clase dentro de la carpeta "errors" donde especifica una longitud de contraseña minimo 8
+     */
+
+    public void register(String username, String password, String email) throws Exception{
+
+        if (username.matches("") | password.matches("") | email.matches("")){
+            throw NullPointerException;
+        }
+
         try{
             fake_db = new DataOutputStream(new FileOutputStream("c:RoutePlan/src/archivos/fake_db.txt", true));
-            fake_db.writeUTF(name);
-            fake_db.writeUTF(surname);
+            fake_db.writeUTF(username);
             fake_db.writeUTF(password);
             fake_db.writeUTF(email);
             fake_db.close();
@@ -25,21 +40,24 @@ public class User {
         }
     }
 
-    public Boolean login(String email, String password) throws IOException{
+    /*
+     * Este metodo se encarga de iterar sobre el archivo txt hasta encontrar las cosas que se le especifican que sean iguales, para poder dar ingreso a la app
+     */
+
+    public Boolean login(String username, String password) throws Exception{
         try {
+
+            if (username.matches("") || password.matches("")){
+                throw NullPointerException;
+            }
+
             DataInputStream fake_db = new DataInputStream(new FileInputStream("c:RoutePlan/src/archivos/fake_db.txt"));
             while (true) {
-                String user_name = fake_db.readUTF();
-                String user_surname = fake_db.readUTF();
+                String user_username = fake_db.readUTF();
                 String user_password = fake_db.readUTF();
                 String user_email = fake_db.readUTF();
 
-                System.out.println(user_name);
-                System.out.println(user_surname);
-                System.out.println(user_email);
-                System.out.println(user_password);
-
-                if (user_email.matches(email) & user_password.matches(password)){
+                if (user_email.matches(username) & user_password.matches(password)){
                     fake_db.close();
                     return true;
                 } 

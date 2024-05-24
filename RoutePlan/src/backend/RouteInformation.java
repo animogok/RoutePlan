@@ -4,6 +4,10 @@ import java.time.Duration;
 import backend.errors.*;;
 public class RouteInformation extends Route{
 
+    /*
+     * Generamos los atributos, recalco que la velocidad promedio fue obtenidad de internet para generar una uniformidad
+     */
+
     private StringBuilder message = new StringBuilder();
     private int average_vehicleSpeed = 60; //The average speed for Colombia
     private double total_distance;
@@ -12,8 +16,12 @@ public class RouteInformation extends Route{
     private boolean routeReady = false;
     private int totalFuel;
 
+    //Estos dos atributos seran para poder seleccionar entre dos modalidades de rutas dentro de la app
+
     private boolean routeType1 = false; //Direct route, no stops and everything related, just going to the city
     private boolean routeType2 = false; //Route with stops and other things the app should pop out
+
+    //Polimorfismo por sobrecarga donde se podra seleccionar entre 3 ciudades o 2 para poder generar el recorrido
 
     public RouteInformation(int IdVehicle, int IdCity1, int IdCity2) {
         super(IdVehicle, IdCity1, IdCity2);
@@ -22,7 +30,9 @@ public class RouteInformation extends Route{
     public RouteInformation(int IdVehicle, int IdCity1, int IdCity2, int Idcity3) {
         super(IdVehicle, IdCity1, IdCity2, Idcity3);
     }
-    
+
+    // Aqui podremos especificar que tipo de ruta si todo esta correcto, esto va a ser el "switch" el cual mostrara la informacion al usuario
+
     public void set_route(int idRouteType){
         routeReady = true;
         if (idRouteType == 0){
@@ -53,6 +63,10 @@ public class RouteInformation extends Route{
             rne.getMessage();
         }
     }
+
+    /*
+     * Estos metodos son generales para poder obtener la informacion que puede ser mostrada al usuario dentro de el aplicativo dado el caso no lineal
+     */
 
     public String get_mintime(){
         return min_time.toString();
