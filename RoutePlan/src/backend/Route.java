@@ -10,7 +10,7 @@ public class Route {
      * 3 ciudades, pues lo genere
      */
 
-    private String[] vehicles = {"Plane", "Car", "Motorbike", "Passenger bus", "Heavy vehicles", "Bike"};
+    private String[] vehicles = {"Plane", "Car", "Motorbike", "Passenger bus", "Heavy vehicles"};
     private String[] cities = {"Bogotá", "Ibagué", "Armenia", "Pereira", "Manizales", "Medellín", "Tunja"};
     private String vehicle = "";
     private String city1 = "";

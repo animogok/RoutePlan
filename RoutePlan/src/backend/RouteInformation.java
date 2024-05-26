@@ -77,8 +77,20 @@ public class RouteInformation extends Route{
     }
 
     public void set_routeType(){
-        double averageFuelCapacity = 55;
-        double averageAutonomy = 10 * averageFuelCapacity; //how much distance the vehicle will travel with a full gas tank 
+        double averageFuelCapacity=0;
+        double averageAutonomy = 0; //how much distance the vehicle will travel with a full gas tank
+        
+        if (getVehicle() == "Car") {
+        	averageFuelCapacity = 55;
+        	averageAutonomy = averageFuelCapacity/12;
+        } else if (getVehicle() == "Motorbike") {
+        	averageFuelCapacity = 15;
+        	averageAutonomy = averageFuelCapacity/0.045;
+        } else if (getVehicle() == "Passenger bus" || getVehicle() == "Heavy vehicles") {
+        	averageFuelCapacity = 100;
+        	averageAutonomy = averageFuelCapacity/0.35;
+        }
+            
 
         if (routeType1){
             if ((total_distance/averageAutonomy) > 1){
