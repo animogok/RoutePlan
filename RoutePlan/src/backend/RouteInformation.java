@@ -90,7 +90,8 @@ public class RouteInformation extends Route{
         	averageFuelCapacity = 100;
         	averageAutonomy = averageFuelCapacity/0.35;
         }
-            
+        
+        
 
         if (routeType1){
             if ((total_distance/averageAutonomy) > 1){
