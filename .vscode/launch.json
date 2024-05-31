@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Board",
+            "request": "launch",
+            "mainClass": "GUI.Board",
+            "projectName": "Proyecto_U"
+        },
+        {
+            "type": "java",
             "name": "Login_ex",
             "request": "launch",
             "mainClass": "GUI.Login_ex",
