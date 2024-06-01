@@ -79,11 +79,18 @@ public class Board extends buttons{
  		frame.getContentPane().add(titlePanel);
 
         // Welcome to the user
- 		JLabel lblWelcome = new JLabel("Welcome user, what do you want to do?");
-         lblWelcome.setFont(customFont.deriveFont(Font.BOLD, 40));
-         lblWelcome.setForeground(Color.DARK_GRAY);
-         lblWelcome.setBounds(28, 110, 700, 40);
-         frame.getContentPane().add(lblWelcome);
+ 		JLabel lblWelcome = new JLabel("Welcome, what do you want to do?"); // poner el nombre del usuario registrado
+        lblWelcome.setFont(customFont.deriveFont(Font.BOLD, 40));
+        lblWelcome.setForeground(Color.DARK_GRAY);
+        lblWelcome.setBounds(28, 110, 700, 40);
+        frame.getContentPane().add(lblWelcome);
+
+		// General map
+		JLabel lblGeneralMap = new JLabel("Here is the map to take a look");
+		lblGeneralMap.setFont(customFont.deriveFont(Font.BOLD, 40));
+		lblGeneralMap.setForeground(Color.DARK_GRAY);
+		lblGeneralMap.setBounds(28, 170, 700, 40);
+		frame.getContentPane().add(lblGeneralMap);
 
         // My routes button
 		JButton btnMyRoutes = createButton("My routes", new Color(80, 59, 204), 750, 700, 200, 90, new ActionListener() {
@@ -116,6 +123,14 @@ public class Board extends buttons{
 		    }
 		});
 		frame.getContentPane().add(btnExit);
+
+		JLabel lblMap = new JLabel("");
+        ImageIcon map = new ImageIcon(new ImageIcon(Planificator.class.getResource("/archivos/images/General_map.PNG")).getImage().getScaledInstance(700, 550, Image.SCALE_DEFAULT));
+        lblMap.setIcon(map);
+        lblMap.setBounds(28, 240, 700, 550);
+		// Agregar un marco a la imagen
+		lblMap.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        frame.getContentPane().add(lblMap);
 
         JLabel lblPortrait = new JLabel("");
         ImageIcon portrait = new ImageIcon(new ImageIcon(Planificator.class.getResource("/archivos/images/portrait2.png")).getImage().getScaledInstance(550, 550, Image.SCALE_DEFAULT));
