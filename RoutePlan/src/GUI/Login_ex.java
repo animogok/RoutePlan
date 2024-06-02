@@ -8,6 +8,8 @@ import backend.User;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 
@@ -17,33 +19,17 @@ public class Login_ex {
 	 * 
 	 * 
 	 */
-
+	private boolean sign_up = false;
+	
 	private String username;
 	private String password;
 	private boolean user_registered = true;
 
-	private User user = new User();
+	private final User user = new User();
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField user_login;
 	private JPasswordField password_login;
-
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login_ex window = new Login_ex();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -131,23 +117,31 @@ public class Login_ex {
 	    log_in.setBounds(0, 500, 89, 23);
 	    inner_panel.add(log_in);
 	    
-	    JButton btnNewButton = new JButton("Sign Up");
-	    btnNewButton.addMouseListener(new MouseAdapter() {
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		frame.dispose();
-	    	}
-	    });
+	    JButton btnNewButton = new JButton("Register");
+	    btnNewButton.addActionListener((ActionEvent e) -> {
+				Register_e register = new Register_e();
+                register.frame.setVisible(true);
+				frame.dispose();
+            });
+	    
 	    btnNewButton.setBounds(354, 500, 89, 23);
 	    inner_panel.add(btnNewButton);
 	    
 	    
 	    JPanel right_panel = new JPanel();
 	    frame.getContentPane().add(right_panel);
-	    right_panel.setLayout(new GridLayout(0, 1, 0, 0));;
+	    right_panel.setLayout(new GridLayout(0, 1, 0, 0));
+	}
+	
+	public boolean get_sign_up() {
+		return sign_up;
 	}
 	
 	public boolean get_userRegistered() {
 		return user_registered;
 	}
+
+    private void setSign_up(boolean sign_up) {
+        this.sign_up = sign_up;
+    }
 }

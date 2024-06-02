@@ -1,10 +1,26 @@
 package GUI;
 
-import java.io.IOException;
+import java.awt.EventQueue;
+import java.awt.Window;
 
 class Main{
 
-    public static void main(String[] args) throws IOException {
-        
-    }
+    public static void main(String[] args) {
+
+        /*
+         * 
+         * Test 1: Login and register in terms of connection between both classes
+         */
+
+		EventQueue.invokeLater(() -> {
+                    try {
+                        Login_ex window_login = new Login_ex();
+                        window_login.frame.setVisible(true);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+            });
+
+	}
 }

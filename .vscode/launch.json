@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "GUI.Main",
+            "projectName": "Proyecto_U"
+        },
+        {
+            "type": "java",
+            "name": "Register_e",
+            "request": "launch",
+            "mainClass": "GUI.Register_e",
+            "projectName": "Proyecto_U"
+        },
+        {
+            "type": "java",
+            "name": "Board",
+            "request": "launch",
+            "mainClass": "GUI.Board",
+            "projectName": "Proyecto_U_3f1f3b8e"
+        },
+        {
+            "type": "java",
             "name": "Board",
             "request": "launch",
             "mainClass": "GUI.Board",

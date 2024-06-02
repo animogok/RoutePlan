@@ -53,7 +53,6 @@ public class User {
 
             DataInputStream fake_db = new DataInputStream(new FileInputStream("c:RoutePlan/src/archivos/fake_db.txt"));
             while (true) {
-                String user_username = fake_db.readUTF();
                 String user_password = fake_db.readUTF();
                 String user_email = fake_db.readUTF();
 
