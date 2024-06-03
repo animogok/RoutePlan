@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import javax.swing.border.LineBorder;
 
 public class buttons {
     // Class that creates Buttons and RadioButtons
@@ -22,7 +23,7 @@ public class buttons {
 	    button.setForeground(Color.WHITE);
 	    button.setFont(customFont.deriveFont(Font.BOLD, 30));
 	    button.setFocusPainted(false);
-	    button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+	    button.setBorder(BorderFactory.createCompoundBorder(new LineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 20, 10, 20)));
 	    button.setBackground(color);
 	    button.addActionListener(action);
 	    button.setBounds(x, y, width, height);
@@ -49,6 +50,7 @@ public class buttons {
 	    radioButton.setBackground(color);
 	    radioButton.addActionListener(action);
 	    radioButton.setBounds(x, y, width, height);
+		
 	    // Efecto de cambio de color al pasar el mouse
 	    radioButton.addMouseListener(new MouseAdapter() {
 	    	public void mouseEntered(MouseEvent e) {

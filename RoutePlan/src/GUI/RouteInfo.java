@@ -83,12 +83,6 @@ public class RouteInfo extends buttons{
         lblCity2.setForeground(Color.DARK_GRAY);
         lblCity2.setBounds(28, 290, 700, 40);
         frame.getContentPane().add(lblCity2);
-        
-        JLabel lblCity3 = new JLabel("Third city in the travel: " + city3);
-        lblCity3.setFont(customFont.deriveFont(Font.BOLD, 35));
-        lblCity3.setForeground(Color.DARK_GRAY);
-        lblCity3.setBounds(28, 350, 700, 40);
-        frame.getContentPane().add(lblCity3);
 
         JLabel lblTotalDistance = new JLabel("Second city in the travel: " + vehicle);
         lblTotalDistance.setFont(customFont.deriveFont(Font.BOLD, 35));
