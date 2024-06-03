@@ -9,12 +9,12 @@ public class InternalInformationRoute {
      * This class will manage the information between Login and Register, in terms of authentication and autorization
      */
 
-    public boolean is_emailCorrect(String email) throws EmailException{
+    public EmailException is_emailCorrect(String email) throws EmailException{
         String pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(email);
         if (m.matches()){
-            return true;
+            return null;
         } else{
             throw new EmailException();
         }

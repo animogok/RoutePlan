@@ -1,15 +1,10 @@
 package GUI;
 
-import java.awt.*;
-
-import javax.swing.*;
-
 import backend.User;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 
 
@@ -91,10 +86,9 @@ public class Login_ex {
 	    inner_panel.add(password_loginTittle);
 	    
 	    JButton log_in = new JButton("Log In");
-	    log_in.addMouseListener(new MouseAdapter() {
-	        @Override
-	        public void mouseClicked(MouseEvent e) {
-	            username = user_login.getText();
+	    log_in.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+				username = user_login.getText();
 	            password = String.valueOf(password_login.getPassword());
 
 	            try {
@@ -103,15 +97,17 @@ public class Login_ex {
 	                	int choice = JOptionPane.showConfirmDialog(null, "Want to create an account", "choose one", JOptionPane.YES_NO_OPTION);
 	                	
 	                	if (choice == JOptionPane.YES_OPTION) {
-	                		user_registered = false;
+	                		Register_e register = new Register_e();
+							register.frame.setVisible(true);
 							frame.dispose();
 	                	}
 	                }
 	            } catch (Exception e1) {
 	                JOptionPane.showMessageDialog(null, "Username or Password Incorrect", "Error", JOptionPane.ERROR_MESSAGE);
 	            }
-	        }
+	    	}
 	    });
+	    
 
 	    log_in.setBackground(UIManager.getColor("CheckBox.background"));
 	    log_in.setBounds(0, 500, 89, 23);

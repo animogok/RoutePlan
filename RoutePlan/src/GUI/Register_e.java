@@ -1,12 +1,18 @@
 package GUI;
 
+import backend.InternalInformationRoute;
+import backend.User;
+import backend.errors.EmailException;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -15,6 +21,7 @@ import javax.swing.SwingConstants;
 public class Register_e {
 
 	JFrame frame;
+	private InternalInformationRoute iir = new InternalInformationRoute();
 	private JTextField username_field;
 	private JTextField email_field;
 	private JPasswordField password_creation;
@@ -92,6 +99,48 @@ public class Register_e {
 	    password_NameC.setFont(customFont.deriveFont(Font.BOLD, 35));
 	    password_NameC.setBounds(10, 490, 300, 25);
 	    innerPanel.add(password_NameC);
+	    
+	    JButton register_user = new JButton("Register");
+	    register_user.addActionListener((ActionEvent e) -> {
+                User user = new User();
+                String username = username_field.getText();
+				String email = email_field.getText();
+                try {
+                    iir.is_emailCorrect(email);
+                } catch (EmailException ex) {
+                    JOptionPane.showMessageDialog(null, "Set a correct email direction", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+				String password = String.valueOf(password_creation.getPassword());
+				String password2 = String.valueOf(password_confirmation.getPassword());
+
+				if (password.length() < 8){
+					JOptionPane.showMessageDialog(null, "Password must have more than 8 characters", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				if (!password.equals(password2)){
+					JOptionPane.showMessageDialog(null, "Password mismatch", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+
+                try {
+                    user.register(username, email, password);
+                } catch (Exception ex) {
+				}
+				
+        });
+		
+	    register_user.setBounds(10, 580, 89, 23);
+	    innerPanel.add(register_user);
+	    
+	    JButton login_user = new JButton("Login");
+	    login_user.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+				Login_ex login = new Login_ex();
+				login.frame.setVisible(true);
+				frame.dispose();
+	    	}
+	    });
+
+	    login_user.setBounds(351, 580, 89, 23);
+	    innerPanel.add(login_user);
 	    
 	    JPanel left_panel = new JPanel();
 	    frame.getContentPane().add(left_panel);
