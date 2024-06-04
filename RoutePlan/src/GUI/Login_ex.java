@@ -107,7 +107,7 @@ public class Login_ex extends buttons{
 						// Cierra la ventana actual
 						frame.setVisible(false);
 	                } else {
-	                	int choice = JOptionPane.showConfirmDialog(null, "Want to create an account", "choose one", JOptionPane.YES_NO_OPTION);
+	                	int choice = JOptionPane.showConfirmDialog(null, "Want to create an account?", "choose one", JOptionPane.YES_NO_OPTION);
 	                	
 	                	if (choice == JOptionPane.YES_OPTION) {
 	                		// Crea y muestra la ventana estado cuando se hace clic en el botón
