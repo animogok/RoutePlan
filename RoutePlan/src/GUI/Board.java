@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class Board extends buttons{
 
-    private JFrame frame;
+    JFrame frame;
 	private JPanel titlePanel;
 	private JLabel titleLabel;
 	private JLabel logoLabel;
@@ -17,14 +17,14 @@ public class Board extends buttons{
 	/**
 	 * Create the application.
 	 */
-	public Board() {
-		initialize();
+	public Board(String username) {
+		initialize(username);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String username) {
 	    frame = new JFrame();
 	       
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -63,7 +63,7 @@ public class Board extends buttons{
  		frame.getContentPane().add(titlePanel);
 
         // Welcome to the user
- 		JLabel lblWelcome = new JLabel("Welcome, what do you want to do?"); // poner el nombre del usuario registrado
+ 		JLabel lblWelcome = new JLabel("Welcome " + username + ", what do you want to do?"); // poner el nombre del usuario registrado
         lblWelcome.setFont(customFont.deriveFont(Font.BOLD, 40));
         lblWelcome.setForeground(Color.DARK_GRAY);
         lblWelcome.setBounds(28, 110, 700, 40);
@@ -89,12 +89,12 @@ public class Board extends buttons{
 		JButton btnPlanificate = createButton("Planificate a route", new Color(70, 116, 93), 1000, 700, 250, 90, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-					// Crea y muestra la ventana estado cuando se hace clic en el botón
-                    Planificator planificator = new Planificator(frame);
-                    planificator.frame.setVisible(true);
-                    
-                    // Cierra la ventana actual
-                    frame.setVisible(false);
+				// Crea y muestra la ventana estado cuando se hace clic en el botón
+				Planificator planificator = new Planificator(frame);
+				planificator.frame.setVisible(true);
+				
+				// Cierra la ventana actual
+				frame.setVisible(false);
 		    }
 		});
 		frame.getContentPane().add(btnPlanificate);

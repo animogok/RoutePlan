@@ -1,7 +1,6 @@
 package GUI;
 
 import java.awt.EventQueue;
-import java.awt.Window;
 
 class Main{
 

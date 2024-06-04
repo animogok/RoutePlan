@@ -8,12 +8,8 @@ import javax.swing.*;
 
 
 
-public class Login_ex {
+public class Login_ex extends buttons{
 	
-	/*
-	 * 
-	 * 
-	 */
 	private boolean sign_up = false;
 	
 	private String username;
@@ -23,8 +19,9 @@ public class Login_ex {
 	private final User user = new User();
 
 	JFrame frame;
-	private JTextField user_login;
-	private JPasswordField password_login;
+	private JPanel titlePanel;
+	private JLabel titleLabel;
+	private JLabel logoLabel;
 
 	/**
 	 * Create the application.
@@ -38,95 +35,136 @@ public class Login_ex {
 	 */
 	private void initialize() {
 	    frame = new JFrame();
-	    frame.setAutoRequestFocus(false);
-	       
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    Dimension windowSize = new Dimension(screenSize.width, screenSize.height);
 
-	    frame.getContentPane().setBackground(new Color(240, 240, 240));
-	    frame.getContentPane().setLayout(new GridLayout(0, 3, 10, 0));
-
-	    JPanel left_panel = new JPanel();
-	    frame.getContentPane().add(left_panel);
-	    left_panel.setLayout(new CardLayout(0, 0));
-
-	    // Set the frame size after adding all components
-	    frame.setSize(windowSize);
-	    frame.getContentPane().setSize(windowSize);
-	    
-	    JPanel inner_panel = new JPanel();
-	    frame.getContentPane().add(inner_panel);
-	    inner_panel.setLayout(null);
+	    frame.getContentPane().setBackground(Color.white);
+	    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+        frame.setTitle("Step by Step");
+        frame.setUndecorated(true);
 	    
 	    Font customFont = CustomFont.loadFont("CDType - Voga Medium.ttf");
-	    JLabel login_tittle = new JLabel("Step by Step");
+
+		// tittle panel created
+		titlePanel = new JPanel();
+		titlePanel.setBounds(0, 0, screenSize.width, 40);
+		titlePanel.setBackground(new Color(240, 240, 240));
+		titlePanel.setLayout(new FlowLayout());
+
+		// logo created
+		ImageIcon logo = new ImageIcon(Login_ex.class.getResource("/archivos/images/logo.png"));
+		ImageIcon logoMin = new ImageIcon(new ImageIcon(Login_ex.class.getResource("/archivos/images/logo.png")).getImage().getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+		logoLabel = new JLabel(logoMin);
+		titlePanel.add(logoLabel);
+		frame.setIconImage(logo.getImage());
+		frame.getContentPane().setLayout(null);
+
+		// tittled created
+		titleLabel = new JLabel("Step by Step");
+		titleLabel.setFont(customFont.deriveFont(Font.BOLD, 25));
+		titleLabel.setForeground(Color.BLACK);
+		titlePanel.add(titleLabel);
+
+		// Agregar el panel del título al frame
+		frame.getContentPane().add(titlePanel);
+
+	    JLabel login_tittle = new JLabel("Welcome to Step by Step");
 	    login_tittle.setHorizontalAlignment(SwingConstants.CENTER);
 	    login_tittle.setFont(customFont.deriveFont(Font.BOLD, 65));
-	    login_tittle.setBounds(92, 200, 257, 80);
-	    inner_panel.add(login_tittle);
-	    
-	    user_login = new JTextField();
-	    user_login.setBorder(UIManager.getBorder("Tree.editorBorder"));
-	    user_login.setBounds(0, 350, 443, 30);
-	    inner_panel.add(user_login);
-	    
-	    password_login = new JPasswordField();
-	    password_login.setBorder(UIManager.getBorder("Tree.editorBorder"));
-	    password_login.setBounds(0, 440, 443, 30);
-	    inner_panel.add(password_login);
-	    
-	    JLabel user_loginTittle = new JLabel("Username");
+	    login_tittle.setBounds(40, 150, 500, 80);
+	    frame.getContentPane().add(login_tittle);
+
+		JLabel user_loginTittle = new JLabel("Username");
 	    user_loginTittle.setFont(customFont.deriveFont(Font.BOLD, 30));
-	    user_loginTittle.setBounds(10, 316, 150, 23);
-	    inner_panel.add(user_loginTittle);
+	    user_loginTittle.setBounds(70, 300, 150, 35);
+	    frame.getContentPane().add(user_loginTittle);
 	    
 	    JLabel password_loginTittle = new JLabel("Password");
 	    password_loginTittle.setFont(customFont.deriveFont(Font.BOLD, 30));
-	    password_loginTittle.setBounds(10, 400, 150, 23);
-	    inner_panel.add(password_loginTittle);
+	    password_loginTittle.setBounds(70, 400, 150, 35);
+	    frame.getContentPane().add(password_loginTittle);
+
+		JTextField user_login = createTextField("Inserte el nombre de usuario aquí", 70, 350, 443, 30);
+		frame.getContentPane().add(user_login);
+
+		JPasswordField password_login = createPasswordField(70, 450, 443, 30);
+		frame.getContentPane().add(password_login);
 	    
-	    JButton log_in = new JButton("Log In");
-	    log_in.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-				username = user_login.getText();
+		// login button
+		JButton log_in = createButton("Log In", new Color(70, 116, 93), 70, 500, 150, 50, new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	username = user_login.getText();
 	            password = String.valueOf(password_login.getPassword());
 
 	            try {
 	                if(user.login(username, password)){
+						// Crea y muestra la ventana estado cuando se hace clic en el botón
+						Board board = new Board(username);
+						board.frame.setVisible(true);
+						
+						// Cierra la ventana actual
+						frame.setVisible(false);
 	                } else {
 	                	int choice = JOptionPane.showConfirmDialog(null, "Want to create an account", "choose one", JOptionPane.YES_NO_OPTION);
 	                	
 	                	if (choice == JOptionPane.YES_OPTION) {
-	                		Register_e register = new Register_e();
+	                		// Crea y muestra la ventana estado cuando se hace clic en el botón
+							Register_e register = new Register_e(frame);
 							register.frame.setVisible(true);
-							frame.dispose();
+							
+							// Cierra la ventana actual
+							frame.setVisible(false);
 	                	}
 	                }
 	            } catch (Exception e1) {
 	                JOptionPane.showMessageDialog(null, "Username or Password Incorrect", "Error", JOptionPane.ERROR_MESSAGE);
 	            }
-	    	}
-	    });
-	    
+		    }
+		});
+		frame.getContentPane().add(log_in);
 
-	    log_in.setBackground(UIManager.getColor("CheckBox.background"));
-	    log_in.setBounds(0, 500, 89, 23);
-	    inner_panel.add(log_in);
-	    
-	    JButton btnNewButton = new JButton("Register");
-	    btnNewButton.addActionListener((ActionEvent e) -> {
-				Register_e register = new Register_e();
-                register.frame.setVisible(true);
-				frame.dispose();
-            });
-	    
-	    btnNewButton.setBounds(354, 500, 89, 23);
-	    inner_panel.add(btnNewButton);
-	    
-	    
-	    JPanel right_panel = new JPanel();
-	    frame.getContentPane().add(right_panel);
-	    right_panel.setLayout(new GridLayout(0, 1, 0, 0));
+		// Register button
+		JButton btnRegister = createButton("Register",  new Color(80, 59, 204), 350, 500, 150, 50, new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	// Crea y muestra la ventana estado cuando se hace clic en el botón
+				Register_e register = new Register_e(frame);
+				register.frame.setVisible(true);
+				
+				// Cierra la ventana actual
+				frame.setVisible(false);
+		    }
+		});
+		frame.getContentPane().add(btnRegister);
+
+		// Exit button
+		JButton btnExit = createButton("Exit", new Color(229, 57, 53), 200, 700, 150, 50, new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	System.exit(0);
+		    }
+		});
+		frame.getContentPane().add(btnExit);
+
+		JLabel lblPortrait = new JLabel("");
+        ImageIcon portrait = new ImageIcon(new ImageIcon(Login_ex.class.getResource("/archivos/images/welcome.gif")).getImage().getScaledInstance(650, 650, Image.SCALE_DEFAULT));
+        lblPortrait.setIcon(portrait);
+        lblPortrait.setBounds(750, 110, 650, 650);
+        frame.getContentPane().add(lblPortrait);
+
+		SwingUtilities.invokeLater(new Runnable() {
+		    public void run() {
+		        // Solicita el foco en el JButton en lugar del JTextField
+		        btnExit.requestFocusInWindow();
+		    }
+		});
+
+		// Set the frame size after adding all components
+	    frame.setSize(windowSize);
+	    frame.getContentPane().setSize(windowSize);
+		
 	}
 	
 	public boolean get_sign_up() {
