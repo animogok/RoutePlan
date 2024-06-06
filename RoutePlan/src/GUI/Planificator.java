@@ -1,18 +1,23 @@
 package GUI;
 
 import java.awt.*;
-
-import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class Planificator extends buttons{
 
+	private String vehicle;
 	private String city1;
     private String city2;
 	
     JFrame frame;
+
+	JRadioButton radioBtnPlane = null;
+	JRadioButton radioBtnCar = null;
+	JRadioButton radioBtnMotorbike = null;
+	JRadioButton radioBtnPassengerbus = null;
+	JRadioButton radioBtnHeavyvehicle = null;
 
 	private JRadioButton radioBtnBogota1 = null;
 	private JRadioButton radioBtnIbague1 = null;
@@ -97,42 +102,52 @@ public class Planificator extends buttons{
 		frame.getContentPane().add(lblVehicles);
 		
 		// Radio buttons with cyan color from Material Design
-		JRadioButton radioBtnPlane = createRadioButton("Plane", new Color(0, 188, 212), 250, 170, 190, 40, new ActionListener() {
+		radioBtnPlane = createRadioButton("Plane", new Color(0, 188, 212), 250, 170, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón Plane
+
+				vehicle = radioBtnPlane.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnPlane);
 
-		JRadioButton radioBtnCar = createRadioButton("Car", new Color(0, 188, 212), 250, 210, 190, 40, new ActionListener() {
+		radioBtnCar = createRadioButton("Car", new Color(0, 188, 212), 250, 210, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón Car
+
+				vehicle = radioBtnCar.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnCar);
         
-		JRadioButton radioBtnMotorbike = createRadioButton("Motorbike", new Color(0, 188, 212), 250, 250, 190, 40, new ActionListener() {
+		radioBtnMotorbike = createRadioButton("Motorbike", new Color(0, 188, 212), 250, 250, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				vehicle = radioBtnMotorbike.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnMotorbike);
 		
-		JRadioButton radioBtnPassengerbus = createRadioButton("Passenger bus", new Color(0, 188, 212), 250, 290, 190, 40, new ActionListener() {
+		radioBtnPassengerbus = createRadioButton("Passenger bus", new Color(0, 188, 212), 250, 290, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				vehicle = radioBtnPassengerbus.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnPassengerbus);
 		
-		JRadioButton radioBtnHeavyvehicle = createRadioButton("Heavy vehicle", new Color(0, 188, 212), 250, 330, 190, 40, new ActionListener() {
+		radioBtnHeavyvehicle = createRadioButton("Heavy vehicle", new Color(0, 188, 212), 250, 330, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				vehicle = radioBtnHeavyvehicle.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnHeavyvehicle);
@@ -319,7 +334,7 @@ public class Planificator extends buttons{
 		    public void actionPerformed(ActionEvent e) {
 
 				Login_ex log_info = new Login_ex();
-				log_info.get_userClass().set_update_userInfo(city1, city2);
+				log_info.get_userClass().set_update_userInfo(city1, city2, vehicle);
 		    	// Se supone que aca se llaman a la lógica para hacer la ruta
 		    }
 		});
@@ -346,7 +361,18 @@ public class Planificator extends buttons{
 	    frame.setSize(windowSize);
 	    frame.getContentPane().setSize(windowSize);
 	    
-	    
 	}
+
+	public String getVehicle() {
+        return vehicle;
+    }
+
+    public String getCity1() {
+        return city1;
+    }
+
+    public String getCity2() {
+        return city2;
+    }
     
 }

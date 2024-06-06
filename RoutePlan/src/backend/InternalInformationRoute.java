@@ -47,13 +47,15 @@ public class InternalInformationRoute {
 
     }
 
-    public void set_update_userInfo(String route1, String route2){
+    public void set_update_userInfo(String route1, String route2, String vehicle){
         counter++;
 
+        String key_v = "vehicle_Route" + counter;
         String routes = route1+","+route2;
         String key = "routes" + counter;
 
         user_session.put(key, routes);
+        user_session.put(key_v, vehicle);
     }
 
     public void save_infoByclossinSession(){

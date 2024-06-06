@@ -1,7 +1,7 @@
 package backend;
 
 import java.time.Duration;
-import backend.errors.*;;
+import backend.errors.*;
 public class RouteInformation extends Route{
 
     /*
