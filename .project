@@ -14,18 +14,6 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>RoutePlan/src/archivos/images/trayecto-avion</name>
-			<type>2</type>
-			<location>/Users/nata/Desktop/images/trayecto-avion</location>
-		</link>
-		<link>
-			<name>RoutePlan/src/archivos/images/trayecto-carretera</name>
-			<type>2</type>
-			<location>/Users/nata/Desktop/images/trayecto-carretera</location>
-		</link>
-	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1716333497943</id>
