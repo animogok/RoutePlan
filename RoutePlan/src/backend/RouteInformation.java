@@ -27,10 +27,6 @@ public class RouteInformation extends Route{
         super(IdVehicle, IdCity1, IdCity2);
     }
 
-    public RouteInformation(int IdVehicle, int IdCity1, int IdCity2, int Idcity3) {
-        super(IdVehicle, IdCity1, IdCity2, Idcity3);
-    }
-
     // Aqui podremos especificar que tipo de ruta si todo esta correcto, esto va a ser el "switch" el cual mostrara la informacion al usuario
 
     public void set_route(int idRouteType){

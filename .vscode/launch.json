@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "User",
+            "request": "launch",
+            "mainClass": "backend.User",
+            "projectName": "Proyecto_U"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "GUI.Main",

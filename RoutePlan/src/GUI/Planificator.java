@@ -9,7 +9,27 @@ import java.awt.event.ActionListener;
 
 public class Planificator extends buttons{
 
+	private String city1;
+    private String city2;
+	
     JFrame frame;
+
+	private JRadioButton radioBtnBogota1 = null;
+	private JRadioButton radioBtnIbague1 = null;
+	private JRadioButton radioBtnArmenia1 = null;
+	private JRadioButton radioBtnPereira1 = null;
+	private JRadioButton radioBtnManizales1 = null;
+	private JRadioButton radioBtnMedellin1 = null;
+	private JRadioButton radioBtnTunja1 = null;
+
+	private JRadioButton radioBtnBogota2 = null;
+	private JRadioButton radioBtnIbague2 = null;
+	private JRadioButton radioBtnArmenia2 = null;
+	private JRadioButton radioBtnPereira2 = null;
+	private JRadioButton radioBtnManizales2 = null;
+	private JRadioButton radioBtnMedellin2 = null;
+	private JRadioButton radioBtnTunja2 = null;
+
 	private JPanel titlePanel;
 	private JLabel titleLabel;
 	private JLabel logoLabel;
@@ -133,58 +153,69 @@ public class Planificator extends buttons{
 		frame.getContentPane().add(lblCities1);
 		
 		// Radio buttons with blue color from Material Design
-		JRadioButton radioBtnBogota1 = createRadioButton("Bogotá", new Color(0, 145, 234), 28, 470, 190, 40, new ActionListener() {
+		radioBtnBogota1 = createRadioButton("Bogotá", new Color(0, 145, 234), 28, 470, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city1 = radioBtnBogota1.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnBogota1);
 		
-		JRadioButton radioBtnIbague1 = createRadioButton("Ibagué", new Color(0, 145, 234), 28, 510, 190, 40, new ActionListener() {
+		radioBtnIbague1 = createRadioButton("Ibagué", new Color(0, 145, 234), 28, 510, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city1 = radioBtnIbague1.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnIbague1);
 		
-		JRadioButton radioBtnArmenia1 = createRadioButton("Armenia", new Color(0, 145, 234), 28, 550, 190, 40, new ActionListener() {
+		radioBtnArmenia1 = createRadioButton("Armenia", new Color(0, 145, 234), 28, 550, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				city1 = radioBtnArmenia1.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnArmenia1);
 		
-		JRadioButton radioBtnPereira1 = createRadioButton("Pereira", new Color(0, 145, 234), 28, 590, 190, 40, new ActionListener() {
+		radioBtnPereira1 = createRadioButton("Pereira", new Color(0, 145, 234), 28, 590, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city1 = radioBtnPereira1.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnPereira1);
 		
-		JRadioButton radioBtnManizales1 = createRadioButton("Manizales", new Color(0, 145, 234), 28, 630, 190, 40, new ActionListener() {
+		radioBtnManizales1 = createRadioButton("Manizales", new Color(0, 145, 234), 28, 630, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				city1 = radioBtnManizales1.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnManizales1);
 		
-		JRadioButton radioBtnMedellin1 = createRadioButton("Medellín", new Color(0, 145, 234), 28, 670, 190, 40, new ActionListener() {
+		radioBtnMedellin1 = createRadioButton("Medellín", new Color(0, 145, 234), 28, 670, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				city1 = radioBtnMedellin1.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnMedellin1);
 		
-		JRadioButton radioBtnTunja1 = createRadioButton("Tunja", new Color(0, 145, 234), 28, 710, 190, 40, new ActionListener() {
+		radioBtnTunja1 = createRadioButton("Tunja", new Color(0, 145, 234), 28, 710, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				city1 = radioBtnTunja1.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnTunja1);
@@ -207,58 +238,67 @@ public class Planificator extends buttons{
 		frame.getContentPane().add(lblCities2);
 		
 		// Radio buttons with blue color from Material Design
-		JRadioButton radioBtnBogota2 = createRadioButton("Bogotá", new Color(156, 39, 176), 400, 470, 190, 40, new ActionListener() {
+		radioBtnBogota2 = createRadioButton("Bogotá", new Color(156, 39, 176), 400, 470, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				city2 = radioBtnBogota2.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnBogota2);
 		
-		JRadioButton radioBtnIbague2 = createRadioButton("Ibagué", new Color(156, 39, 176), 400, 510, 190, 40, new ActionListener() {
+		radioBtnIbague2 = createRadioButton("Ibagué", new Color(156, 39, 176), 400, 510, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+
+				city2 = radioBtnIbague2.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnIbague2);
 		
-		JRadioButton radioBtnArmenia2 = createRadioButton("Armenia", new Color(156, 39, 176), 400, 550, 190, 40, new ActionListener() {
+		radioBtnArmenia2 = createRadioButton("Armenia", new Color(156, 39, 176), 400, 550, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city2 = radioBtnArmenia2.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnArmenia2);
 		
-		JRadioButton radioBtnPereira2 = createRadioButton("Pereira", new Color(156, 39, 176), 400, 590, 190, 40, new ActionListener() {
+		radioBtnPereira2 = createRadioButton("Pereira", new Color(156, 39, 176), 400, 590, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city2 = radioBtnPereira2.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnPereira2);
 		
-		JRadioButton radioBtnManizales2 = createRadioButton("Manizales", new Color(156, 39, 176), 400, 630, 190, 40, new ActionListener() {
+		radioBtnManizales2 = createRadioButton("Manizales", new Color(156, 39, 176), 400, 630, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city2 = radioBtnManizales2.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnManizales2);
 		
-		JRadioButton radioBtnMedellin2 = createRadioButton("Medellín", new Color(156, 39, 176), 400, 670, 190, 40, new ActionListener() {
+		radioBtnMedellin2 = createRadioButton("Medellín", new Color(156, 39, 176), 400, 670, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city2 = radioBtnMedellin2.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnMedellin2);
 		
-		JRadioButton radioBtnTunja2 = createRadioButton("Tunja", new Color(156, 39, 176), 400, 710, 190, 40, new ActionListener() {
+		radioBtnTunja2 = createRadioButton("Tunja", new Color(156, 39, 176), 400, 710, 190, 40, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Acción específica del botón
+				city2 = radioBtnTunja2.getText();
 		    }
 		});
 		frame.getContentPane().add(radioBtnTunja2);
@@ -277,6 +317,9 @@ public class Planificator extends buttons{
 		JButton btnRoute = createButton("Route", new Color(70, 116, 93), 1100, 700, 150, 90, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
+
+				Login_ex log_info = new Login_ex();
+				log_info.get_userClass().set_update_userInfo(city1, city2);
 		    	// Se supone que aca se llaman a la lógica para hacer la ruta
 		    }
 		});

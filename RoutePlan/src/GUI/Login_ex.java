@@ -1,5 +1,6 @@
 package GUI;
 
+import backend.InternalInformationRoute;
 import backend.User;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,11 +11,11 @@ import javax.swing.*;
 
 public class Login_ex extends buttons{
 	
+	private InternalInformationRoute internal = new InternalInformationRoute();
 	private boolean sign_up = false;
 	
 	private String username;
 	private String password;
-	private boolean user_registered = true;
 
 	private final User user = new User();
 
@@ -101,9 +102,9 @@ public class Login_ex extends buttons{
 	            try {
 	                if(user.login(username, password)){
 						// Crea y muestra la ventana estado cuando se hace clic en el botón
+						internal.seriralize_User(username, password);
 						Board board = new Board(username);
 						board.frame.setVisible(true);
-						
 						// Cierra la ventana actual
 						frame.setVisible(false);
 	                } else {
@@ -129,6 +130,7 @@ public class Login_ex extends buttons{
 		JButton btnRegister = createButton("Register",  new Color(80, 59, 204), 350, 500, 150, 50, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
+			
 		    	// Crea y muestra la ventana estado cuando se hace clic en el botón
 				Register_e register = new Register_e(frame);
 				register.frame.setVisible(true);
@@ -171,11 +173,12 @@ public class Login_ex extends buttons{
 		return sign_up;
 	}
 	
-	public boolean get_userRegistered() {
-		return user_registered;
-	}
 
     private void setSign_up(boolean sign_up) {
         this.sign_up = sign_up;
     }
+
+	public InternalInformationRoute get_userClass(){
+		return internal;
+	}
 }

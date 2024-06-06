@@ -44,19 +44,20 @@ public class User {
      * Este metodo se encarga de iterar sobre el archivo txt hasta encontrar las cosas que se le especifican que sean iguales, para poder dar ingreso a la app
      */
 
-    public Boolean login(String username, String password) throws Exception{
+     public boolean login(String username, String password) throws Exception{
         try {
-
-            if (username.matches("") || password.matches("")){
-                throw NullPointerException;
+            if (username.isEmpty() || password.isEmpty()) {
+                throw new NullPointerException();
             }
-
+    
             DataInputStream fake_db = new DataInputStream(new FileInputStream("c:RoutePlan/src/archivos/fake_db.txt"));
             while (true) {
+                System.err.println(username);
+                System.err.println(password);
                 String user_username = fake_db.readUTF();
                 String user_password = fake_db.readUTF();
-
-                if (user_username.matches(username) && user_password.matches(password)){
+    
+                if (username.equals(user_username) && password.equals(user_password)){
                     fake_db.close();
                     return true;
                 } 
