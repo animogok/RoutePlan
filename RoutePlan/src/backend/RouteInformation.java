@@ -160,6 +160,10 @@ public class RouteInformation {
         return neededFuel;
     }
 
+    public String get_activePauses(){
+        return message_activePause;
+    }
+
     public void set_fuel(String vehicle){
         double averageFuelCapacity;
         double averageAutonomy; //how much distance the vehicle will travel with a full gas tank
