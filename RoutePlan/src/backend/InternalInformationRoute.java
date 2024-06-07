@@ -1,7 +1,6 @@
 package backend;
 
 import backend.errors.EmailException;
-
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -66,5 +65,9 @@ public class InternalInformationRoute {
         } catch (IOException e) {
             System.out.println("Somethin went wrong, please try again");
         }
+    }
+    
+    public void texto(){
+        System.err.println(user_Info.toString());
     }
 }

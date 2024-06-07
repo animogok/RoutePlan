@@ -11,7 +11,6 @@ import javax.swing.*;
 
 public class Login_ex extends buttons{
 	
-	private InternalInformationRoute internal = new InternalInformationRoute();
 	private boolean sign_up = false;
 	
 	private String username;
@@ -93,37 +92,40 @@ public class Login_ex extends buttons{
 		frame.getContentPane().add(password_login);
 	    
 		// login button
-		JButton log_in = createButton("Log In", new Color(70, 116, 93), 70, 500, 150, 50, new ActionListener() {
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-		    	username = user_login.getText();
-	            password = String.valueOf(password_login.getPassword());
-
-	            try {
-	                if(user.login(username, password)){
-						// Crea y muestra la ventana estado cuando se hace clic en el botón
-						internal.seriralize_User(username, password);
-						Board board = new Board(username);
-						board.frame.setVisible(true);
-						// Cierra la ventana actual
-						frame.setVisible(false);
-	                } else {
-	                	int choice = JOptionPane.showConfirmDialog(null, "Want to create an account?", "choose one", JOptionPane.YES_NO_OPTION);
-	                	
-	                	if (choice == JOptionPane.YES_OPTION) {
-	                		// Crea y muestra la ventana estado cuando se hace clic en el botón
-							Register_e register = new Register_e(frame);
-							register.frame.setVisible(true);
-							
-							// Cierra la ventana actual
-							frame.setVisible(false);
-	                	}
-	                }
-	            } catch (Exception e1) {
-	                JOptionPane.showMessageDialog(null, "Username or Password Incorrect", "Error", JOptionPane.ERROR_MESSAGE);
-	            }
-		    }
-		});
+		JButton log_in;
+            log_in = createButton("Log In", new Color(70, 116, 93), 70, 500, 150, 50, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    username = user_login.getText();
+                    password = String.valueOf(password_login.getPassword());
+                    
+                    try {
+                        if(user.login(username, password)){
+                            // Crea y muestra la ventana estado cuando se hace clic en el botón
+                            InternalInformationRoute internal = new InternalInformationRoute();
+                            internal.seriralize_User(username, password);
+                            internal.texto();
+                            Board board = new Board(username, internal);
+                            board.frame.setVisible(true);
+                            // Cierra la ventana actual
+                            frame.setVisible(false);
+                        } else {
+                            int choice = JOptionPane.showConfirmDialog(null, "Want to create an account?", "choose one", JOptionPane.YES_NO_OPTION);
+                            
+                            if (choice == JOptionPane.YES_OPTION) {
+                                // Crea y muestra la ventana estado cuando se hace clic en el botón
+                                Register_e register = new Register_e(frame);
+                                register.frame.setVisible(true);
+                                
+                                // Cierra la ventana actual
+                                frame.setVisible(false);
+                            }
+                        }
+                    } catch (Exception e1) {
+                        JOptionPane.showMessageDialog(null, "Username or Password Incorrect", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            });
 		frame.getContentPane().add(log_in);
 
 		// Register button
@@ -178,7 +180,4 @@ public class Login_ex extends buttons{
         this.sign_up = sign_up;
     }
 
-	public InternalInformationRoute get_userClass(){
-		return internal;
-	}
 }

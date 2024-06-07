@@ -1,11 +1,11 @@
 package GUI;
 
+import backend.InternalInformationRoute;
+import backend.RouteInformation;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
-import backend.RouteInformation;
 
 public class Planificator extends buttons{
 
@@ -44,14 +44,14 @@ public class Planificator extends buttons{
 	/**
 	 * Create the application. 
 	 */
-	public Planificator(JFrame board) {
-		initialize(board);
+	public Planificator(JFrame board, InternalInformationRoute user) {
+		initialize(board, user);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(JFrame board) {
+	private void initialize(JFrame board, InternalInformationRoute user) {
 	    frame = new JFrame();
 	       
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -339,10 +339,9 @@ public class Planificator extends buttons{
 						JOptionPane.showMessageDialog(null, "Por favor seleccionar una opción, las ciudades no pueden ser las mismas", "Error", JOptionPane.ERROR_MESSAGE);
 						break;
 					}
-
-					Login_ex log_info = new Login_ex();
-					log_info.get_userClass().set_update_userInfo(city1, city2, vehicle);
-		    	
+					
+					user.set_update_userInfo(city1, city2, vehicle);
+					user.texto();
 					RouteInformation routeInfo = new RouteInformation();
 					routeInfo.view(frame, vehicle.toLowerCase(), city1.toLowerCase(), city2.toLowerCase());
 

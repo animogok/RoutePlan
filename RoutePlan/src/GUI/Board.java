@@ -1,5 +1,6 @@
 package GUI;
 
+import backend.InternalInformationRoute;
 import java.awt.*;
 
 import javax.swing.*;
@@ -17,14 +18,14 @@ public class Board extends buttons{
 	/**
 	 * Create the application.
 	 */
-	public Board(String username) {
-		initialize(username);
+	public Board(String username, InternalInformationRoute user) {
+		initialize(username, user);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(String username) {
+	private void initialize(String username, InternalInformationRoute user) {
 	    frame = new JFrame();
 	       
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -90,7 +91,7 @@ public class Board extends buttons{
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 				// Crea y muestra la ventana estado cuando se hace clic en el botón
-				Planificator planificator = new Planificator(frame);
+				Planificator planificator = new Planificator(frame, user);
 				planificator.frame.setVisible(true);
 				
 				// Cierra la ventana actual
