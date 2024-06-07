@@ -2,6 +2,7 @@ package GUI;
 
 import backend.InternalInformationRoute;
 import backend.RouteInformation;
+import backend.errors.RouteNotEstablishedException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -339,12 +340,12 @@ public class Planificator extends buttons{
 						JOptionPane.showMessageDialog(null, "Por favor seleccionar una opción, las ciudades no pueden ser las mismas", "Error", JOptionPane.ERROR_MESSAGE);
 						break;
 					}
-					
-					user.set_update_userInfo(city1, city2, vehicle);
-					user.texto();
-
 					RouteInformation routeInfo = new RouteInformation();
-					routeInfo.view(frame, vehicle.toLowerCase(), city1.toLowerCase(), city2.toLowerCase());
+                                    try {
+                                        routeInfo.view(frame, vehicle.toLowerCase(), city1.toLowerCase(), city2.toLowerCase());
+										user.set_update_userInfo(city1, city2, vehicle);
+                                    } catch (RouteNotEstablishedException ex) {
+                                    }
 					break;
 				}
 		    }

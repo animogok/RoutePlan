@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "InternalInformationRoute",
+            "request": "launch",
+            "mainClass": "backend.InternalInformationRoute",
+            "projectName": "Proyecto_U"
+        },
+        {
+            "type": "java",
             "name": "RouteInformation",
             "request": "launch",
             "mainClass": "backend.RouteInformation",

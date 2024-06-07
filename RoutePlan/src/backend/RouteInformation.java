@@ -1,12 +1,11 @@
 package backend;
 
+import GUI.RouteInfo;
+import backend.errors.RouteNotEstablishedException;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
-import GUI.RouteInfo;
 public class RouteInformation {
 
     /*
@@ -126,7 +125,7 @@ public class RouteInformation {
         }
     }
 
-    public void view(JFrame planificator, String vehicle, String city1, String city2){
+    public void view(JFrame planificator, String vehicle, String city1, String city2) throws RouteNotEstablishedException{
 
         set_totalTime(city1, city2);
         set_fuel(vehicle);
@@ -360,28 +359,27 @@ public class RouteInformation {
                         switch (city2) {
                             case "ibagué":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-IBG_IBG-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)113, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "armenia":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-ARM_ARM-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                               (double)181, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "pereira":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-PER_PER-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)177, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "manizales":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-MAN_MAN-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)150,"1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "medellín":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-MED_MED-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)215, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "tunja":
-                                new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-TUN_TUN-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
-                                break;
+                                JOptionPane.showMessageDialog(null, "No es posible este viaje, Tunja no cuenta con aeropuerto comercial", "Error", JOptionPane.ERROR_MESSAGE);
+                                throw new RouteNotEstablishedException();
                             default:
                                 break;
                         }
@@ -390,23 +388,23 @@ public class RouteInformation {
                         switch (city2) {
                             case "bogotá":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-IBG_IBG-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)113, "00:55", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "armenia":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                            break;
+                                throw new RouteNotEstablishedException();
                             case "pereira":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case "manizales":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "medellín":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "tunja":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             default:
                                 break;
                         }
@@ -415,24 +413,24 @@ public class RouteInformation {
                         switch (city2) {
                             case "bogotá":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-ARM_ARM-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)181, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "ibagué":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "pereira":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "manizales":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "medellín":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/ARM-MED_MED-ARM.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)194, "00:45", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "tunja":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             default:
                                 break;
                         }
@@ -441,24 +439,24 @@ public class RouteInformation {
                         switch (city2) {
                             case "bogotá":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-PER_PER-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)177, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "ibagué":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "armenia":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "manizales":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "medellín":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/PER-MED_MED-PER.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)154, "00:40", (double) 920, "You are on a plane", get_neededFuel(), get_activePauses());
                                 break;
                             case "tunja":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             default:
                                 break;
                         }
@@ -467,23 +465,23 @@ public class RouteInformation {
                         switch (city2) {
                             case "bogotá":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-MAN_MAN-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)177, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "ibagué":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "armenia":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "pereira":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "medellín":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "tunja":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             default:
                                 break;
                         }
@@ -492,25 +490,25 @@ public class RouteInformation {
                         switch (city2) {
                             case "bogotá":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-MED_MED-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)215, "1:00", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "ibagué":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "armenia":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/ARM-MED_MED-ARM.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)194, "00:45", (double) 920, "You are on a plane" , get_neededFuel(), get_activePauses());
                                 break;
                             case "pereira":
                                 new RouteInfo(planificator, "/archivos/images/trayecto-avion/PER-MED_MED-PER.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
+                                (double)154, "00:40", (double) 920, "You are on a plane", get_neededFuel(), get_activePauses());
                                 break;
                             case "manizales":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "tunja":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             default:
                                 break;
                         }
@@ -518,24 +516,23 @@ public class RouteInformation {
                     case "tunja":
                         switch (city2) {
                             case "bogotá":
-                                new RouteInfo(planificator, "/archivos/images/trayecto-avion/BOG-TUN_TUN-BOG.png", vehicle, city1, city2, 
-                                get_totaldistance(), get_time(), get_speed(), get_refuelMessage(), get_neededFuel(), get_activePauses());
-                                break;
+                                JOptionPane.showMessageDialog(null, "No es posible este viaje, Tunja no tiene aeropuerto comercial", "Error", JOptionPane.ERROR_MESSAGE);
+                                throw new RouteNotEstablishedException();
                             case "ibagué":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "armenia":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "pereira":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "manizales":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             case "medellín":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                                throw new RouteNotEstablishedException();
                             default:
                                 break;
                         }
@@ -615,12 +612,13 @@ public class RouteInformation {
             default -> {
             }
         }
-
     }
+    
 
     public static void main(String[] args) {
         RouteInformation rt = new RouteInformation();
         rt.set_totalTime("Bogota", "Armenia");
         System.err.println(rt.get_time());
     }
+
 }

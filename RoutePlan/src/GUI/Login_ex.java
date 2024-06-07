@@ -103,12 +103,25 @@ public class Login_ex extends buttons{
                         if(user.login(username, password)){
                             // Crea y muestra la ventana estado cuando se hace clic en el botón
                             InternalInformationRoute internal = new InternalInformationRoute();
-                            internal.seriralize_User(username, password);
-                            internal.texto();
-                            Board board = new Board(username, internal);
-                            board.frame.setVisible(true);
-                            // Cierra la ventana actual
-                            frame.setVisible(false);
+							internal.set_userExist(username, password);
+							if (!internal.get_userExist()){
+								System.out.println("Gola");
+								internal.seriralize_User(username, password);
+								Board board = new Board(username, internal);
+								board.frame.setVisible(true);
+								// Cierra la ventana actual
+								frame.setVisible(false);
+							} else if(internal.get_userExist()){
+								System.out.println("Gola");
+								internal.delete_user(username, password);
+								InternalInformationRoute internal2 = new InternalInformationRoute();
+								internal2.seriralize_User(internal.get_userExMap().get("username"), internal.get_userExMap().get("password"));
+								internal2.set_update_userInfo(internal.get_userExMap());
+								Board board = new Board(username, internal2);
+								board.frame.setVisible(true);
+								// Cierra la ventana actual
+								frame.setVisible(false);
+							}
                         } else {
                             int choice = JOptionPane.showConfirmDialog(null, "Want to create an account?", "choose one", JOptionPane.YES_NO_OPTION);
                             

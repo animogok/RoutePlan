@@ -104,6 +104,7 @@ public class Board extends buttons{
 		JButton btnExit = createButton("Exit", new Color(229, 57, 53), 1300, 700, 150, 90, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
+				user.save_infoByclossinSession();
 		    	System.exit(0);
 		    }
 		});

@@ -52,11 +52,11 @@ public class User {
     
             DataInputStream fake_db = new DataInputStream(new FileInputStream("c:RoutePlan/src/archivos/fake_db.txt"));
             while (true) {
-                System.err.println(username);
-                System.err.println(password);
                 String user_username = fake_db.readUTF();
                 String user_password = fake_db.readUTF();
-    
+                String user_email = fake_db.readUTF();
+                System.err.println(user_username);
+                System.err.println(user_password);
                 if (username.equals(user_username) && password.equals(user_password)){
                     fake_db.close();
                     return true;
