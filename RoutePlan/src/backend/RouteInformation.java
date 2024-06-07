@@ -394,18 +394,18 @@ public class RouteInformation {
                                 break;
                             case "armenia":
                                 JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
-                                break;
+                            break;
                             case "pereira":
-                            JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case "manizales":
-                            JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case "medellín":
-                            JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case "tunja":
-                            JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "No es posible este viaje, requiere de escala en bogotá", "Error", JOptionPane.ERROR_MESSAGE);
                                 break;
                             default:
                                 break;
@@ -542,7 +542,6 @@ public class RouteInformation {
                         break;
                     default:
                         break;
-
                 }
                 break;
         
@@ -616,7 +615,6 @@ public class RouteInformation {
             default -> {
             }
         }
-        
 
     }
 

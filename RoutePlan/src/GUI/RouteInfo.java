@@ -82,25 +82,25 @@ public class RouteInfo extends buttons{
         lblCity2.setBounds(28, 290, 700, 40);
         frame.getContentPane().add(lblCity2);
 
-        JLabel lblTotalDistance = new JLabel("Total distance of the travel: " + totalDistance);
+        JLabel lblTotalDistance = new JLabel("Total distance of the travel: " + (Math.round(totalDistance * 100)/100));
         lblTotalDistance.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblTotalDistance.setForeground(Color.DARK_GRAY);
         lblTotalDistance.setBounds(28, 350, 700, 40);
         frame.getContentPane().add(lblCity2);
 
-        JLabel lblMaxTime = new JLabel("Time of the travel: " + time);
+        JLabel lblMaxTime = new JLabel("Time of the travel: " + time + " hours");
         lblMaxTime.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblMaxTime.setForeground(Color.DARK_GRAY);
         lblMaxTime.setBounds(28, 410, 700, 40);
         frame.getContentPane().add(lblMaxTime);
  
-        JLabel lblTotalFuel = new JLabel("Total of fuel needed: " + neededFuel);
+        JLabel lblTotalFuel = new JLabel("Total of fuel needed: " + (Math.round(neededFuel * 100)/100) + "% of the fuel tank");
         lblTotalFuel.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblTotalFuel.setForeground(Color.DARK_GRAY);
         lblTotalFuel.setBounds(28, 470, 700, 40);
         frame.getContentPane().add(lblTotalFuel);
 
-        JLabel lblSpeed = new JLabel("Medium speed of the travel: " + speed);
+        JLabel lblSpeed = new JLabel("Medium speed of the travel: " + speed + "km/h");
         lblSpeed.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblSpeed.setForeground(Color.DARK_GRAY);
         lblSpeed.setBounds(28, 530, 700, 40);
@@ -109,20 +109,20 @@ public class RouteInfo extends buttons{
         JLabel lblRefuelMessage = new JLabel("Refuel recomendation: " + refuelMessage);
         lblRefuelMessage.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblRefuelMessage.setForeground(Color.DARK_GRAY);
-        lblRefuelMessage.setBounds(28, 590, 700, 40);
+        lblRefuelMessage.setBounds(28, 590, 1500, 40);
         frame.getContentPane().add(lblRefuelMessage);
 
         JLabel lblActivePauses = new JLabel("Active pauses recomendation: " + activePauses);
         lblActivePauses.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblActivePauses.setForeground(Color.DARK_GRAY);
-        lblActivePauses.setBounds(28, 650, 700, 40);
+        lblActivePauses.setBounds(28, 650, 1500, 40);
         frame.getContentPane().add(lblActivePauses);
 
         // Map of the route
         JLabel lblMap = new JLabel("");
         ImageIcon imgMap = new ImageIcon(new ImageIcon(Planificator.class.getResource(map)).getImage().getScaledInstance(700, 550, Image.SCALE_DEFAULT));
         lblMap.setIcon(imgMap);
-        lblMap.setBounds(900, 90, 700, 550);
+        lblMap.setBounds(760, 90, 700, 550);
 		// Agregar un marco a la imagen
 		lblMap.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
         frame.getContentPane().add(lblMap);
@@ -141,5 +141,8 @@ public class RouteInfo extends buttons{
         // Set the frame size after adding all components
 	    frame.setSize(windowSize);
 	    frame.getContentPane().setSize(windowSize);
+        frame.setVisible(true);
+        // Cierra la ventana anterior
+        planificator.setVisible(false);
     }
 }

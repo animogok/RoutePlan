@@ -342,11 +342,9 @@ public class Planificator extends buttons{
 					
 					user.set_update_userInfo(city1, city2, vehicle);
 					user.texto();
+
 					RouteInformation routeInfo = new RouteInformation();
 					routeInfo.view(frame, vehicle.toLowerCase(), city1.toLowerCase(), city2.toLowerCase());
-
-					// Cierra la ventana actual
-					frame.setVisible(false);
 					break;
 				}
 		    }
