@@ -4,8 +4,6 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import java.time.Duration;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,8 +16,8 @@ public class RouteInfo extends buttons{
 	private JLabel logoLabel;
 
     // Cambien los parametros si lo consideran más comodo o efectivo...
-    public RouteInfo(JFrame planificator, String map, String vehicle, String city1, String city2, String city3, 
-                    double total_distance, Duration min_time, Duration max_time, int totalFuel, boolean routeType1, boolean routeType2){
+    public RouteInfo(JFrame planificator, String map, String vehicle, String city1, String city2, Double totalDistance, 
+                    String time, Double speed, String refuelMessage, Double neededFuel, String activePauses){
 
         frame = new JFrame();
 	       
@@ -84,31 +82,41 @@ public class RouteInfo extends buttons{
         lblCity2.setBounds(28, 290, 700, 40);
         frame.getContentPane().add(lblCity2);
 
-        JLabel lblTotalDistance = new JLabel("Second city in the travel: " + vehicle);
+        JLabel lblTotalDistance = new JLabel("Total distance of the travel: " + totalDistance);
         lblTotalDistance.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblTotalDistance.setForeground(Color.DARK_GRAY);
-        lblTotalDistance.setBounds(28, 410, 700, 40);
+        lblTotalDistance.setBounds(28, 350, 700, 40);
         frame.getContentPane().add(lblCity2);
 
-        JLabel lblMinTime = new JLabel("Minimum time of the travel: " + min_time);
-        lblMinTime.setFont(customFont.deriveFont(Font.BOLD, 35));
-        lblMinTime.setForeground(Color.DARK_GRAY);
-        lblMinTime.setBounds(28, 480, 700, 40);
-        frame.getContentPane().add(lblMinTime);
-
-        JLabel lblMaxTime = new JLabel("Maximum time of the travel: " + max_time);
+        JLabel lblMaxTime = new JLabel("Time of the travel: " + time);
         lblMaxTime.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblMaxTime.setForeground(Color.DARK_GRAY);
-        lblMaxTime.setBounds(28, 540, 700, 40);
+        lblMaxTime.setBounds(28, 410, 700, 40);
         frame.getContentPane().add(lblMaxTime);
  
-        JLabel lblTotalFuel = new JLabel("Total of fuel needed: " + totalFuel);
+        JLabel lblTotalFuel = new JLabel("Total of fuel needed: " + neededFuel);
         lblTotalFuel.setFont(customFont.deriveFont(Font.BOLD, 35));
         lblTotalFuel.setForeground(Color.DARK_GRAY);
-        lblTotalFuel.setBounds(28, 600, 700, 40);
+        lblTotalFuel.setBounds(28, 470, 700, 40);
         frame.getContentPane().add(lblTotalFuel);
 
-        // Agregar más cosas como paradas y eso...
+        JLabel lblSpeed = new JLabel("Medium speed of the travel: " + speed);
+        lblSpeed.setFont(customFont.deriveFont(Font.BOLD, 35));
+        lblSpeed.setForeground(Color.DARK_GRAY);
+        lblSpeed.setBounds(28, 530, 700, 40);
+        frame.getContentPane().add(lblSpeed);
+
+        JLabel lblRefuelMessage = new JLabel("Refuel recomendation: " + refuelMessage);
+        lblRefuelMessage.setFont(customFont.deriveFont(Font.BOLD, 35));
+        lblRefuelMessage.setForeground(Color.DARK_GRAY);
+        lblRefuelMessage.setBounds(28, 590, 700, 40);
+        frame.getContentPane().add(lblRefuelMessage);
+
+        JLabel lblActivePauses = new JLabel("Active pauses recomendation: " + activePauses);
+        lblActivePauses.setFont(customFont.deriveFont(Font.BOLD, 35));
+        lblActivePauses.setForeground(Color.DARK_GRAY);
+        lblActivePauses.setBounds(28, 650, 700, 40);
+        frame.getContentPane().add(lblActivePauses);
 
         // Map of the route
         JLabel lblMap = new JLabel("");

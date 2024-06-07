@@ -10,24 +10,14 @@ public class Route {
      * 3 ciudades, pues lo genere
      */
 
-    private String[] vehicles = {"Plane", "Car", "Motorbike", "Passenger bus", "Heavy vehicles"};
-    private String[] cities = {"Bogotá", "Ibagué", "Armenia", "Pereira", "Manizales", "Medellín", "Tunja"};
     private String vehicle = "";
     private String city1 = "";
     private String city2 = "";
-    private String city3 = "";
 
-    public Route(int IdVehicle, int IdCity1, int IdCity2){
-        this.vehicle = vehicles[IdVehicle];
-        this.city1 = cities[IdCity1];
-        this.city2 = cities[IdCity2];
-    }
-
-    public Route(int IdVehicle, int IdCity1, int IdCity2, int Idcity3){
-        this.vehicle = vehicles[IdVehicle];
-        this.city1 = cities[IdCity1];
-        this.city2 = cities[IdCity2];
-        this.city3 = cities[Idcity3];
+    public Route(String vehicle, String city1, String city2){
+        this.vehicle = vehicle;
+        this.city1 = city1;
+        this.city2 = city2;
     }
 
     public String getVehicle() {
@@ -52,13 +42,5 @@ public class Route {
 
     public void setCity2(String city2) {
         this.city2 = city2;
-    }
-
-    public String getCity3() {
-        return city3;
-    }
-
-    public void setCity3(String city3) {
-        this.city3 = city3;
     }
 }

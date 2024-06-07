@@ -5,11 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import backend.RouteInformation;
+
 public class Planificator extends buttons{
 
-	private String vehicle;
-	private String city1;
-    private String city2;
+	private String vehicle = "";
+	private String city1 = "";
+    private String city2 = "";
 	
     JFrame frame;
 
@@ -332,10 +334,22 @@ public class Planificator extends buttons{
 		JButton btnRoute = createButton("Route", new Color(70, 116, 93), 1100, 700, 150, 90, new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
+				while (true){
+					if (city1 == city2 || vehicle == "" || city1 == "" || city2 == ""){
+						JOptionPane.showMessageDialog(null, "Por favor seleccionar una opción, las ciudades no pueden ser las mismas", "Error", JOptionPane.ERROR_MESSAGE);
+						break;
+					}
 
-				Login_ex log_info = new Login_ex();
-				log_info.get_userClass().set_update_userInfo(city1, city2, vehicle);
-		    	// Se supone que aca se llaman a la lógica para hacer la ruta
+					Login_ex log_info = new Login_ex();
+					log_info.get_userClass().set_update_userInfo(city1, city2, vehicle);
+		    	
+					RouteInformation routeInfo = new RouteInformation();
+					routeInfo.view(frame, vehicle.toLowerCase(), city1.toLowerCase(), city2.toLowerCase());
+
+					// Cierra la ventana actual
+					frame.setVisible(false);
+					break;
+				}
 		    }
 		});
 		frame.getContentPane().add(btnRoute);
